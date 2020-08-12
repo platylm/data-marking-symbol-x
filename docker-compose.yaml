@@ -1,0 +1,15 @@
+version: "3.5"
+
+services:
+  store-database:
+    image: mysql:5.7
+    container_name: store-database
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=sealteam
+      - MYSQL_PASSWORD=sckshuhari
+      - MYSQL_DATABASE=toy
+    volumes:
+      - ./tearup/:/docker-entrypoint-initdb.d/
+    ports:
+      - "3306:3306"
