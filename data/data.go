@@ -6,6 +6,20 @@ import (
 	"time"
 )
 
+type Data interface {
+	MarkingSymbolX(productBrand string) (string, error)
+	RandomRange(max, min int) int
+	ShuffleProductName(randomFn func(int, int) int, productDetail []model.ProductDetail) []model.ProductDetail
+}
+
+func MarkingSymbolX(productBrand string) (string, error) {
+	var markX string
+	for i := 0; i < len(productBrand); i++ {
+		markX += "x"
+	}
+	return markX, nil
+}
+
 type Random struct {
 	Seed int64
 }
@@ -31,12 +45,4 @@ func ShuffleProductName(randomFn func(int, int) int, productDetail []model.Produ
 		productDetail[first].Name, productDetail[second].Name = productDetail[second].Name, productDetail[first].Name
 	}
 	return productDetail
-}
-
-func MarkingSymbolX(productBrand string) (string, error) {
-	var markX string
-	for i := 0; i < len(productBrand); i++ {
-		markX += "x"
-	}
-	return markX, nil
 }
