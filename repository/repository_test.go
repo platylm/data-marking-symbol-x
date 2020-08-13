@@ -30,4 +30,12 @@ func Test_ProductRepository(t *testing.T) {
 		err := repository.UpdateAllDataProductBrand()
 		assert.Equal(t, nil, err)
 	})
+
+	t.Run("UpdateResultShuffleProductName_Should_Be_Updated", func(t *testing.T) {
+		productID := 3
+		productName := "Adidas Ultra Boots"
+
+		err := repository.UpdateResultShuffleProductName(productID, productName)
+		assert.Equal(t, nil, err)
+	})
 }

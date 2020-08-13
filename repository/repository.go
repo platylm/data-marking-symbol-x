@@ -25,3 +25,8 @@ func (productRepository ProductRepositoryMySQL) UpdateAllDataProductBrand() erro
 	}
 	return err
 }
+
+func (productRepository ProductRepositoryMySQL) UpdateResultShuffleProductName(productID int, productName string) error {
+	_, err := productRepository.DBConnection.Exec(`UPDATE products SET product_name = ? WHERE id=?`, productName, productID)
+	return err
+}
