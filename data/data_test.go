@@ -5,7 +5,6 @@ import (
 	"data/model"
 	"testing"
 
-	_ "github.com/go-sql-driver/mysql"
 	"gopkg.in/go-playground/assert.v1"
 )
 
